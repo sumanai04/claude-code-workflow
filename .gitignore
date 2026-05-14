@@ -1,0 +1,5 @@
+# Keep your real config (with API keys) out of git
+litellm_config.yaml
+
+# Cloned separately by install-agents.ps1
+awesome-claude-code-subagents/
