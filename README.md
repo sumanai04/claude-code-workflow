@@ -1,6 +1,6 @@
 # Claude Code Workflow
 
-A ready-to-clone Claude Code setup with **146 specialized sub-agents** and **liteLLM model routing** — so you can hit the ground running with Claude Code on any machine.
+A ready-to-clone Claude Code setup with **146 specialized sub-agents** and **liteLLM model routing** — so you can hit the ground running with Claude Code on any machine. **EVEN IF YOU'RE BROKE**
 
 ## How it works
 
