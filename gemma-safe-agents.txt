@@ -1,0 +1,47 @@
+# Agents safe for Gemma 4:9B (local Ollama model)
+# These are procedural, search-based, documentation, or process-oriented agents
+# that don't require deep multi-step reasoning or complex code generation.
+
+accessibility-tester.md
+agent-installer.md
+agent-organizer.md
+api-documenter.md
+build-engineer.md
+business-analyst.md
+cli-developer.md
+compliance-auditor.md
+content-marketer.md
+context-manager.md
+customer-success-manager.md
+data-researcher.md
+dependency-manager.md
+documentation-engineer.md
+dx-optimizer.md
+git-workflow-manager.md
+knowledge-synthesizer.md
+legacy-modernizer.md
+legal-advisor.md
+license-engineer.md
+m365-admin.md
+market-researcher.md
+mcp-developer.md
+product-manager.md
+project-idea-validator.md
+project-manager.md
+readme-generator.md
+reality-checker.md
+research-analyst.md
+risk-manager.md
+sales-engineer.md
+scientific-literature-researcher.md
+scrum-master.md
+search-specialist.md
+seo-specialist.md
+task-distributor.md
+technical-writer.md
+tooling-engineer.md
+trend-analyst.md
+ux-researcher.md
+web-searcher.md
+wordpress-master.md
+workflow-orchestrator.md

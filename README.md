@@ -1,6 +1,6 @@
 # Claude Code Workflow
 
-A ready-to-clone Claude Code setup with **146 specialized sub-agents** and **liteLLM model routing** — so you can hit the ground running with Claude Code on any machine. **EVEN IF YOU'RE BROKE**
+A ready-to-clone Claude Code setup with **43 specialized sub-agents** and **liteLLM model routing** — so you can hit the ground running with Claude Code on any machine. **EVEN IF YOU'RE BROKE**
 
 ## How it works
 
@@ -19,7 +19,7 @@ Claude Code connects to liteLLM thinking it's talking to Anthropic. liteLLM inte
 
 | Item | Description |
 |---|---|
-| 144 sub-agents | From [awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) — covering every language, framework, and domain |
+| 41 sub-agents | From [awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) — curated to work well with Gemma 4:9B (search, docs, process, coordination) |
 | 2 custom sub-agents | `reality-checker` (project reality assessment) + `web-searcher` (Google/web search) |
 | `litellm_config.example.yaml` | Template for the liteLLM proxy — copy to `litellm_config.yaml` and add your keys |
 | `setup.ps1` | One-command env var configuration for the current terminal |
@@ -45,7 +45,7 @@ cd claude-code-workflow
 cp litellm_config.example.yaml litellm_config.yaml
 # Edit litellm_config.yaml → replace YOUR_DEEPSEEK_API_KEY
 
-# 3. Install all 146 sub-agents globally
+# 3. Install all 43 sub-agents globally (Gemma 4-safe)
 .\install-agents.ps1
 
 # 4. Start the proxy
@@ -60,18 +60,18 @@ claude
 
 ## Sub-agents
 
-All 146 agents are installed to `~/.claude/agents/`, making them available in **every project**. Claude Code reads the `description` field of each agent and automatically spawns the right specialist for the task.
+All 43 agents are installed to `~/.claude/agents/`, making them available in **every project**. Claude Code reads the `description` field of each agent and automatically spawns the right specialist for the task.
 
 ### Examples
 
 | You say | Agent spawned |
 |---|---|
-| "Build an API endpoint" | `backend-developer` or `api-designer` |
-| "Review this React component" | `react-expert` or `code-reviewer` |
-| "Set up a Dockerfile" | `docker-engineer` |
+| "Search for the latest React docs" | `web-searcher` |
+| "Write the README for this project" | `readme-generator` |
 | "Is this feature actually done?" | `reality-checker` |
-| "What's the latest on React 19?" | `web-searcher` |
-| "Audit this for security issues" | `security-auditor` |
+| "Organize the project backlog" | `project-manager` or `scrum-master` |
+| "Check this for accessibility issues" | `accessibility-tester` |
+| "Write the changelog for v2.0" | `documentation-engineer` |
 
 ### Custom agents
 
@@ -93,14 +93,15 @@ All 146 agents are installed to `~/.claude/agents/`, making them available in **
 
 ```
 claude-code-workflow/
-├── awesome-claude-code-subagents/   ← cloned source repo (144 agents)
+├── awesome-claude-code-subagents/   ← cloned source repo (gitignored)
 ├── custom-agents/                   ← reality-checker + web-searcher
+├── gemma-safe-agents.txt            ← which agents to install (curated for Gemma 4:9B)
 ├── litellm_config.example.yaml      ← template (no secrets)
 ├── litellm_config.yaml              ← your real config (gitignored)
 ├── setup.ps1                        ← sets env vars for current terminal
 ├── start-proxy.ps1                  ← starts liteLLM
 ├── profile.ps1                      ← env vars for $PROFILE
-├── install-agents.ps1               ← installs all agents to ~/.claude/agents/
+├── install-agents.ps1               ← installs only Gemma-safe agents
 ├── .gitignore
 └── README.md
 ```
