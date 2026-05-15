@@ -21,6 +21,8 @@ Claude Code connects to liteLLM thinking it's talking to Anthropic. liteLLM inte
 |---|---|
 | 41 sub-agents | From [awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) — curated to work well with Gemma 4:9B (search, docs, process, coordination) |
 | 2 custom sub-agents | `reality-checker` (project reality assessment) + `web-searcher` (Google/web search) |
+| `CLAUDE.md` | Global delegation rules — forces the main model to always use sub-agents |
+| `gemma-safe-agents.txt` | Canonical list of which agents to install |
 | `litellm_config.example.yaml` | Template for the liteLLM proxy — copy to `litellm_config.yaml` and add your keys |
 | `setup.ps1` | One-command env var configuration for the current terminal |
 | `start-proxy.ps1` | Launches liteLLM (foreground or `-Background`) |
@@ -60,7 +62,7 @@ claude
 
 ## Sub-agents
 
-All 43 agents are installed to `~/.claude/agents/`, making them available in **every project**. Claude Code reads the `description` field of each agent and automatically spawns the right specialist for the task.
+All 43 agents are installed to `~/.claude/agents/`, making them available in **every project**. A `CLAUDE.md` with mandatory delegation rules is also deployed to `~/.claude/`, instructing the main model to always spawn sub-agents for matching tasks. Claude Code reads the `description` field of each agent and automatically spawns the right specialist.
 
 ### Examples
 
@@ -95,13 +97,14 @@ All 43 agents are installed to `~/.claude/agents/`, making them available in **e
 claude-code-workflow/
 ├── awesome-claude-code-subagents/   ← cloned source repo (gitignored)
 ├── custom-agents/                   ← reality-checker + web-searcher
+├── CLAUDE.md                        ← sub-agent delegation rules (deployed to ~/.claude/)
 ├── gemma-safe-agents.txt            ← which agents to install (curated for Gemma 4:9B)
 ├── litellm_config.example.yaml      ← template (no secrets)
 ├── litellm_config.yaml              ← your real config (gitignored)
 ├── setup.ps1                        ← sets env vars for current terminal
 ├── start-proxy.ps1                  ← starts liteLLM
 ├── profile.ps1                      ← env vars for $PROFILE
-├── install-agents.ps1               ← installs only Gemma-safe agents
+├── install-agents.ps1               ← installs agents + deploys CLAUDE.md
 ├── .gitignore
 └── README.md
 ```
