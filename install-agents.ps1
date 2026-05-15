@@ -53,3 +53,10 @@ Write-Host "Agents globally available in: $globalAgentsDir" -ForegroundColor Gre
 Write-Host ""
 Write-Host "These agents are selected to work well with Gemma 4:9B (local Ollama)." -ForegroundColor Yellow
 Write-Host "They cover search, documentation, project management, and procedural tasks." -ForegroundColor Yellow
+
+# Deploy global CLAUDE.md
+$claudeMdSource = Join-Path $scriptDir "CLAUDE.md"
+if (Test-Path $claudeMdSource) {
+    Copy-Item $claudeMdSource -Destination "$env:USERPROFILE\.claude\CLAUDE.md" -Force
+    Write-Host "Deployed CLAUDE.md to ~/.claude/CLAUDE.md (sub-agent delegation rules)" -ForegroundColor Green
+}
